@@ -67,7 +67,7 @@ Areas Investigated:
 
 -VirtualBox
 
-##Skills Demonstrated
+## Skills Demonstrated
 
 -Network reconnaissance 
 
