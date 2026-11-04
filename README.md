@@ -36,11 +36,17 @@ Areas investigated:
 A practical investigation of a vulnerable web application environment.
 
 Areas Investigated:
+
 -Network and service discovery
+
 -Web server investigation
+
 -Git repository metadata exposure.
+
 -Application file and configuration review.
+
 -Adminer interface investigation
+
 -Identification of potential information disclosure risks.
 
 **Current status:** service discovery and web investigation in progress.
@@ -48,23 +54,39 @@ Areas Investigated:
 ## Tools Used.
 
 -Kali linux
+
 -Nmap
+
 -Netdiscover
+
 -curl
+
 -smnclient
+
 -Git
+
 -VirtualBox
 
 ##Skills Demonstrated
 
 -Network reconnaissance 
+
 -Host discovery
+
 -Port scanning
+
 -Service and version enumeration
+
 -SMB enumeration
+
 -SSL/TLS security assessment
+
 -web application investigation
+
 -Git metadata exposure analysis
+
 -Linux command-line operations
+
 -Vulnerability identification
+
 -Technical documentationm.
