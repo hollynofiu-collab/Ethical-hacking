@@ -14,10 +14,15 @@ A practical assessment of a vulnerable linux machine in an isolated VirtualBox l
 
 Areas investigated:
 -Network discovery and reconnaissance
+
 -Port scanning and service enumeration.
+
 -SSH service identification
+
 -SMB and NetBIOS enumeration.
+
 -SSL/TLS configuration analysis
+
 -Identification of outdated services and insecure protocols.
 
 **Current status:** Reconnaissance and enumeration completed; further vulnerability validation and exploitation are pending.
