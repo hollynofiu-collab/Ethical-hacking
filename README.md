@@ -89,4 +89,5 @@ Areas Investigated:
 
 -Vulnerability identification
 
--Technical documentationm.
+-Technical documentation.
+
