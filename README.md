@@ -13,6 +13,7 @@ My work currently focus on two lab environments:
 A practical assessment of a vulnerable linux machine in an isolated VirtualBox lab.
 
 Areas investigated:
+
 -Network discovery and reconnaissance
 
 -Port scanning and service enumeration.
@@ -25,9 +26,12 @@ Areas investigated:
 
 -Identification of outdated services and insecure protocols.
 
+
 **Current status:** Reconnaissance and enumeration completed; further vulnerability validation and exploitation are pending.
 
+
 ### 2. DevGuru.
+
 
 A practical investigation of a vulnerable web application environment.
 
