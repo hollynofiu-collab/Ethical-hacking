@@ -1,1 +1,122 @@
-## Project overview
+1. PROJECT OVERVIEW.
+
+This report documents the reconnaissance and initial vulnerabilty scanning performed against Kioptrix vulnerable virtual machine.
+
+The assessment was conducted using Kali Linux within a VirtualBox lab environment.
+
+The objective was to discover the target, identify active network services examine exposed ports and investigate potential web server vulnerabilities.
+
+
+
+2. LAB ENVIRONMENT
+
+Component                                   Details  
+
+Attacker Machine                           Kali Linux
+
+Target Machine                             Kioptrix
+
+Target IP Address                          10.0.2.6
+
+Target MAC Address                         08:00:27:6D:BF:4A
+
+Network Discovery Tool                     Netdiscover
+
+Port Scanning Tool                         Nmap
+
+
+3. HOST DISCOVERY USING NETDISCOVER
+
+Objective
+
+Identify active devives within the network and locale the kioptrix target
+
+Command : sudo netdiscover -r 10.0.2.0/24             
+
+Observations 
+
+Netdiscover identified two hosts on the network:
+
+IP Address                                MAC Address
+
+10.0.2.2                                 08:00:27:0A:DE
+
+10.0.2.6                                 08:00:27:6D:BF:4A
+
+The target selected for further investigation was:
+
+10.0.2.6
+
+The MAC address was identified as an oracle VirtualBox virtual network adapter.
+
+Conclusion:
+
+Host discovery successfully identified the kioptrix machine and established its IP and MAC address for subsequent scanning.
+
+4. INITIAL NMAP PORT SCANNING
+
+Objective :
+
+Identify open TCP ports and determine which network services were accessible on the target.
+
+Command : nmap 10.0.2.6
+
+The most default Nmap scan checks the most common TCP ports.
+
+Scan Results:
+
+The target was confirmed to be online.
+
+Nmap reported:
+
+-Host status Up
+
+-Latency 0.0018 seconds
+
+-Closed TCP ports: 994.
+
+
+Open Ports Identified
+
+Port                       State                    Service
+
+22/tcp                     Open                       SSH
+
+80/tcp                     Open                       HTTP
+
+111/tcp                    Open                      RPCBind
+
+139/tcp                    Open                     NetBIOS-SSN
+
+443/tcp                    Open                      HTTPS
+
+32768/tcp                  Open                     FileNet-TMS
+
+Nmap identified the vendor as:
+
+Oracle virtualBox virtual NIC.
+
+Obversations:
+
+The scan identified six open TCP Ports.
+
+The exposed services indicated that the target was running remote access, web RPC and SMB-related services.
+
+These services were selected for further investigation.
+
+5. WEB SERVER VULNERABILTY SCANNING - NIKTO
+
+Objective
+
+Investigate the web server running on the target and identify potentially insecure configurations and known vulnerability signatures.
+
+Command : nikto -h 10.0.2.6
+
+Explanation:
+
+nikto launches the Nikto web server scanner.
+
+-h specifies the target host.
+
+10.0.2.6 is the target IP address.
+
