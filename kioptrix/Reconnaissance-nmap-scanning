@@ -120,3 +120,125 @@ nikto launches the Nikto web server scanner.
 
 10.0.2.6 is the target IP address.
 
+Explanation:
+
+Nikto launches the nikto web server scanner
+
+-h specifies the target host 
+
+10.0.2.6 is the target IP address.
+
+Nikto was used to examine the HTTP service running on port 80.
+
+Scan Information:
+
+Component                                    Result
+
+Nikto Version                                2.6.1
+
+Target IP                                   10.0.2.6
+
+Target Port                                   80
+
+Platform                                  Linux/Unix
+
+Web Server                                Apache 1.3.20
+
+SSL Module                                 mod_ssl 2.8.4
+
+OpenSSL                                       0.9.6b
+
+
+Findings:
+
+5.1 Potential Inode Information Disclosure
+
+Nikto reported that the server may leak inode information through ETags.
+
+The finding referenced:
+
+CVE-2003-1418
+
+This could expose additional file metadata through HTTP responses.
+
+
+5.2 Outdated Apache Version
+
+Nikto identified several vulnerability signatures associated with the legacy Apache installation.
+
+The reported checks included:
+
+Apache 1.x versions associated with potential denial-of-service and code-execution vulnerabilities.
+
+Apache 1.3 versions below 1.3.27 associated with potential denial-of-service issues.
+
+Apache 1.3 versions below 1.3.29 associated with potential buffer overflow issues involving mod_rewrite and mod_cgi.
+
+These are scanner-reported matches and require independent validation.
+
+
+5.3 mod_ssl Vulnerability Signature
+
+Nikto identified the following SSL module:
+
+mod_ssl/2.8.4
+
+The scanner reported a potential remote buffer overflow vulnerability affecting mod_ssl versions below 2.8.7.
+
+The reported impact may include remote shell access.
+
+Further investigation is required to establish whether the target is actually vulnerable.
+
+
+5.4 HTTP TRACE Method Enabled
+
+Nikto identified the following allowed HTTP methods:
+
+GET, HEAD, OPTIONS, TRACE
+The HTTP TRACE method was enabled on the server.
+
+TRACE can create unnecessary security exposure and should generally be disabled unless required.
+
+5.5 CGI Directory Check
+
+Nikto reported:
+
+No CGI Directories found
+
+This means the scan did not identify CGI directories through its checks.
+
+6. Summary of Findings
+
+The reconnaissance and scanning activities identified the following:
+
+The Kioptrix target was discovered at 10.0.2.6.
+
+The target exposed six open TCP ports.
+
+SSH was accessible on port 22.
+
+HTTP was accessible on port 80.
+
+RPCBind was accessible on port 111.
+
+NetBIOS-SSN was accessible on port 139.
+
+HTTPS was accessible on port 443.
+
+Port 32768 was identified as FileNet-TMS by Nmap.
+
+Apache 1.3.20 was identified by Nikto.
+
+Potential inode information disclosure was reported.
+
+Several legacy Apache vulnerability signatures were identified.
+
+A potential mod_ssl vulnerability was reported.
+
+The HTTP TRACE method was enabled.
+
+![Kioptrix Reconnaissance Scan](../screenshots/kioptrix-reconnaissance-scan.png)
+
+
+
+
